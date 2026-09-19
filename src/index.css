@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Sora", system-ui, -apple-system, sans-serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-graphite: #17191C;
+  --color-graphite-surface: #1B1E22;
+  --color-graphite-card: #20242A;
+  --color-graphite-border: #2B3038;
+  --color-graphite-border-subtle: #24282F;
+  --color-graphite-muted: #8E929A;
+  --color-graphite-faint: #555A64;
+
+  --color-offwhite: #F2F0EA;
+  --color-offwhite-surface: #E8E5DD;
+  --color-offwhite-border: #DCD8CD;
+  --color-offwhite-muted: #696C73;
+
+  --color-cobalt: #3157D5;
+  --color-cobalt-dark: #2546B4;
+  --color-cobalt-light: #4A6EE6;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-graphite);
+    color: var(--color-offwhite);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom subtle system grid background */
+.system-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.system-grid-light {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 25, 28, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 25, 28, 0.04) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #17191C;
+}
+::-webkit-scrollbar-thumb {
+  background: #2B3038;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B424D;
+}

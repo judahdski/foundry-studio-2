@@ -1,0 +1,6 @@
+{
+  "name": "Foundry Studio",
+  "description": "Problem-solving studio turning messy workflows and operational complexity into useful software systems. Raw Problem → Useful System.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
