@@ -1,164 +1,144 @@
-import { WORKING_PRINCIPLES } from '../data/content';
-import { ShieldCheck, MessageSquare, Terminal, RefreshCw, CheckCircle2 } from 'lucide-react';
+import founderPhoto from "../assets/img/asep.jpeg";
 
 interface TrustAboutProps {
-  onOpenContact: () => void;
+    onOpenContact: () => void;
 }
 
-export default function TrustAbout({ onOpenContact }: TrustAboutProps) {
-  return (
-    <section id="about" className="py-24 md:py-32 border-b border-[#2B3038] bg-[#17191C] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Stage Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono text-[#3157D5] uppercase tracking-widest">
-              06 // TRUST
-            </span>
-            <span className="text-[#2B3038] font-mono">/</span>
-            <span className="text-xs font-mono text-[#8E929A] uppercase tracking-widest">
-              PEOPLE & PRINCIPLES
-            </span>
-          </div>
+const principles = [
+    {
+        number: "01",
+        title: "Understand before building",
+        description:
+            "We don't rush into implementation before understanding the problem.",
+    },
+    {
+        number: "02",
+        title: "Keep things useful",
+        description:
+            "Software should make work clearer, easier, or more reliable.",
+    },
+    {
+        number: "03",
+        title: "Build for the long run",
+        description:
+            "A system shouldn't only work today. It should remain understandable and maintainable.",
+    },
+];
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F2F0EA] mb-4">
-            Who’s Behind the Work?
-          </h2>
+export default function TrustAbout(_props: TrustAboutProps) {
+    return (
+        <section
+            id="about"
+            className="relative border-b border-[#2B3038] bg-[#17191C] py-24 md:py-32"
+        >
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mb-14 max-w-3xl">
+                    <div className="mb-3 flex items-center gap-2">
+                        <span className="text-xs font-mono uppercase tracking-widest text-[#3157D5]">
+                            06 // TRUST
+                        </span>
+                        <span className="font-mono text-[#2B3038]">/</span>
+                        <span className="text-xs font-mono uppercase tracking-widest text-[#8E929A]">
+                            THE PERSON BEHIND THE WORK
+                        </span>
+                    </div>
 
-          <p className="text-base sm:text-lg text-[#8E929A] leading-relaxed">
-            Foundry is an independent, focused studio. We deliberately operate without account managers, sales intermediaries, or agency overhead.
-          </p>
-        </div>
+                    <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#F2F0EA] sm:text-4xl lg:text-5xl">
+                        There is a person behind Foundry.
+                    </h2>
 
-        {/* Studio DNA & Mental Model Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
-          
-          {/* Studio Profile Manifesto */}
-          <div className="lg:col-span-7 bg-[#1B1E22] border border-[#2B3038] rounded-sm p-6 sm:p-8 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-3 pb-4 mb-4 border-b border-[#24282F] text-xs font-mono text-[#8E929A]">
-                <span className="text-[#3157D5] font-semibold">STUDIO ARCHETYPE</span>
-                <span>//</span>
-                <span>SMALL · FOCUSED · HANDS-ON</span>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-bold text-[#F2F0EA] mb-4">
-                An engineering-minded studio with strong design taste.
-              </h3>
-
-              <div className="space-y-4 text-sm text-[#8E929A] leading-relaxed">
-                <p>
-                  We are not a traditional design agency that happens to dabble in code, nor are we a development outsourcing shop trying to mimic a branding agency.
-                </p>
-                <p>
-                  We are hands-on systems thinkers and engineers. When you collaborate with Foundry, the people you talk to in the initial diagnostic conversation are the exact same individuals architecting the domain model, designing the interfaces, and writing the production code.
-                </p>
-                <p className="text-[#DCD8CD]">
-                  This direct model preserves signal, eliminates miscommunication, and ensures every line of software is engineered with deep empathy for the people using it every single day.
-                </p>
-              </div>
-            </div>
-
-            {/* Ratio Bar (Technical 65% + Refined 35% + Human undertone) */}
-            <div className="mt-8 pt-6 border-t border-[#24282F]">
-              <div className="flex items-center justify-between text-xs font-mono text-[#8E929A] mb-2">
-                <span>Visual & Verbal Personality</span>
-                <span className="text-[#F2F0EA]">Technical 65% + Refined 35%</span>
-              </div>
-              <div className="h-2 w-full bg-[#141619] rounded-xs overflow-hidden flex border border-[#24282F]">
-                <div className="bg-[#3157D5] h-full" style={{ width: '65%' }} title="Technical 65%" />
-                <div className="bg-[#F2F0EA] h-full" style={{ width: '35%' }} title="Refined 35%" />
-              </div>
-              <div className="flex justify-between text-[11px] font-mono text-[#555A64] mt-1.5">
-                <span>Systems, Modeling & Engineering</span>
-                <span>Editorial Typography & Restraint</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Collaboration Blueprint */}
-          <div className="lg:col-span-5 bg-[#1B1E22] border border-[#2B3038] rounded-sm p-6 sm:p-8 flex flex-col justify-between">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-[#3157D5] block mb-2">
-                How We Collaborate
-              </span>
-              <h4 className="text-lg font-bold text-[#F2F0EA] mb-4">
-                Predictable, calm, and low-friction.
-              </h4>
-
-              <ul className="space-y-3.5 text-xs text-[#8E929A]">
-                <li className="flex items-start gap-3 p-3 bg-[#17191C] border border-[#24282F] rounded-xs">
-                  <Terminal className="w-4 h-4 text-[#3157D5] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-[#DCD8CD] block font-medium font-sans">Working software over slide decks</strong>
-                    We demonstrate progress through clickable, interactive builds rather than speculative presentations.
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3 p-3 bg-[#17191C] border border-[#24282F] rounded-xs">
-                  <MessageSquare className="w-4 h-4 text-[#3157D5] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-[#DCD8CD] block font-medium font-sans">Structured async updates</strong>
-                    Concise weekly written recaps and screen demos so you never wonder what’s being built.
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3 p-3 bg-[#17191C] border border-[#24282F] rounded-xs">
-                  <ShieldCheck className="w-4 h-4 text-[#3157D5] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-[#DCD8CD] block font-medium font-sans">100% Code & Architecture Ownership</strong>
-                    You own the entire repository, data schemas, and deployment pipelines. No vendor lock-in.
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-[#24282F] text-xs text-[#8E929A]">
-              <span>Studio capacity: 2–3 concurrent projects to maintain deep focus.</span>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Studio Principles Section */}
-        <div>
-          <div className="mb-6">
-            <span className="text-xs font-mono text-[#555A64] uppercase block mb-1">
-              Foundational Beliefs
-            </span>
-            <h3 className="text-2xl font-bold text-[#F2F0EA]">
-              Principles We Work By
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {WORKING_PRINCIPLES.map((principle) => (
-              <div
-                key={principle.number}
-                className="bg-[#1B1E22] border border-[#2B3038] p-5 rounded-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono mb-2">
-                    <span className="text-[#3157D5] font-bold">PRINCIPLE {principle.number}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#2B3038]" />
-                  </div>
-                  <h4 className="text-base font-semibold text-[#F2F0EA] mb-2">
-                    {principle.title}
-                  </h4>
-                  <p className="text-xs text-[#DCD8CD] leading-relaxed mb-3">
-                    {principle.statement}
-                  </p>
+                    <p className="text-base leading-relaxed text-[#8E929A] sm:text-lg">
+                        Foundry is the studio. Judah is the person responsible
+                        for the thinking and work behind it.
+                    </p>
                 </div>
-                <div className="pt-3 border-t border-[#24282F] text-[11px] text-[#8E929A] leading-relaxed font-sans">
-                  {principle.rationale}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-      </div>
-    </section>
-  );
+                <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+                    <div className="relative lg:col-span-5">
+                        <div className="absolute -left-3 top-5 hidden h-px w-12 bg-[#3157D5] sm:block" />
+                        <div className="overflow-hidden border border-[#2B3038] bg-[#1B1E22] p-2">
+                            <img
+                                src={founderPhoto}
+                                alt="Judah, founder of Foundry Studio"
+                                className="aspect-[4/5] w-full object-cover object-top grayscale-[15%]"
+                            />
+                        </div>
+                        <div className="mt-3 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#555A64]">
+                            <span>FOUNDRY / 06</span>
+                            <span>ACCOUNTABILITY</span>
+                        </div>
+                    </div>
+
+                    <div className="min-w-0 lg:col-span-7 lg:pt-8">
+                        <div className="border-b border-[#2B3038] pb-8">
+                            <p className="mb-2 text-xs font-mono uppercase tracking-widest text-[#3157D5]">
+                                The person behind the work
+                            </p>
+                            <h3 className="text-3xl font-bold tracking-tight text-[#F2F0EA] sm:text-4xl">
+                                JUDAH
+                            </h3>
+                            <p className="mt-2 text-sm font-mono text-[#8E929A]">
+                                Founder · Full-stack Engineer
+                            </p>
+                            <p className="mt-8 max-w-xl text-xl leading-relaxed text-[#DCD8CD] sm:text-2xl">
+                                Building Foundry around a simple idea: turning
+                                raw problems into useful systems.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-8 pt-8 sm:grid-cols-7 sm:gap-10">
+                            <div className="sm:col-span-5">
+                                <p className="mb-3 text-xs font-mono uppercase tracking-widest text-[#3157D5]">
+                                    WHY FOUNDRY?
+                                </p>
+                                <p className="text-sm leading-relaxed text-[#8E929A]">
+                                    I enjoy taking messy, real-world problems
+                                    and turning them into something structured,
+                                    useful, and easier to work with.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-20 border-t border-[#2B3038] pt-8 md:mt-24">
+                    <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <p className="mb-2 text-xs font-mono uppercase tracking-widest text-[#3157D5]">
+                                HOW WE WORK
+                            </p>
+                            <h3 className="text-2xl font-bold tracking-tight text-[#F2F0EA] sm:text-3xl">
+                                Principles behind the practice.
+                            </h3>
+                        </div>
+                        <span className="text-xs font-mono uppercase tracking-widest text-[#555A64]">
+                            03 / FOUNDATIONAL RULES
+                        </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-0 border-y border-[#24282F] md:grid-cols-3 md:divide-x md:divide-[#24282F]">
+                        {principles.map((principle) => (
+                            <article
+                                key={principle.number}
+                                className="border-b border-[#24282F] py-6 md:border-b-0 md:px-6 md:first:pl-0 md:last:pr-0"
+                            >
+                                <div className="mb-5 flex items-center justify-between">
+                                    <span className="text-xs font-mono font-bold text-[#3157D5]">
+                                        {principle.number}
+                                    </span>
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#3157D5]" />
+                                </div>
+                                <h4 className="mb-3 text-base font-semibold text-[#F2F0EA]">
+                                    {principle.title}
+                                </h4>
+                                <p className="text-sm leading-relaxed text-[#8E929A]">
+                                    {principle.description}
+                                </p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }
