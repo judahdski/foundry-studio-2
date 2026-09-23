@@ -38,6 +38,7 @@ export interface ProcessStage {
 export interface CaseStudy {
   id: string;
   title: string;
+  liveUrl?: string;
   category: string;
   clientType: string;
   summary: string;

@@ -71,7 +71,7 @@ export default function TrustAbout(_props: TrustAboutProps) {
                         the client and the people doing the work.
                     </p>
                 </div>
-                
+
                 {/* Studio DNA & Mental Model Block */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
                     {/* Studio Profile Manifesto */}
@@ -217,22 +217,22 @@ export default function TrustAbout(_props: TrustAboutProps) {
                         </h3>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
-                        <div className="relative lg:col-span-3">
-                            <div className="absolute -left-3 top-5 hidden h-px w-12 bg-[#3157D5] sm:block" />
-                            <div className="w-28 overflow-hidden border border-[#2B3038] bg-[#1B1E22] p-1.5 sm:w-36 lg:w-44">
+                    <div className="grid grid-cols-1 overflow-hidden border border-[#2B3038] bg-[#1B1E22] lg:grid-cols-[minmax(220px,0.8fr)_minmax(0,1.7fr)]">
+                        <div className="border-b border-[#2B3038] p-5 sm:p-7 lg:border-b-0 lg:border-r">
+                            <div className="mx-auto max-w-[240px] overflow-hidden border border-[#2B3038] bg-[#17191C] p-1.5 lg:mx-0">
                                 <img
                                     src={founderPhoto}
                                     alt="Judah, founder of Foundry Studio"
                                     className="aspect-square w-full object-cover object-top grayscale-[15%]"
                                 />
                             </div>
-                            <div className="mt-3 text-[10px] font-mono uppercase tracking-widest text-[#555A64]">
-                                FOUNDRY / 06
+                            <div className="mt-4 flex items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-widest text-[#555A64]">
+                                <span>FOUNDRY / 06</span>
+                                <span className="h-px flex-1 bg-[#3157D5]" />
                             </div>
                         </div>
 
-                        <div className="min-w-0 lg:col-span-9 lg:pt-2">
+                        <div className="min-w-0 p-6 sm:p-8 lg:p-10">
                             <h4 className="text-3xl font-bold tracking-tight text-[#F2F0EA] sm:text-4xl">
                                 JUDAH
                             </h4>

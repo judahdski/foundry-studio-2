@@ -224,176 +224,139 @@ export const PROCESS_STAGES: ProcessStage[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: 'operational-dispatch-system',
-    title: 'Operations & Dispatch Workflow Engine',
+    id: 'remix-coffee',
+    title: 'Remix Coffee Operations Console',
+    liveUrl: 'https://fs04-portofolio-remix-coffee.netlify.app/',
     category: 'Custom Web Development',
-    clientType: 'Regional Logistics & Field Operations Firm',
-    summary: 'A scattered operational workflow across WhatsApp, Excel, and paper slips turned into a single, cohesive browser-based dispatch console.',
+    clientType: 'Coffee-Shop Operations Frontend Demonstration',
+    summary: 'An integrated browser-based operations console connecting POS sales, menu and recipe maintenance, ingredient inventory, cashier shifts, reporting, and transaction correction.',
     problem: {
-      overview: 'Orders arrived via phone, email, and messaging groups. Dispatchers manually transcribed addresses into a shared spreadsheet, which frequently suffered write-conflicts. Drivers were dispatched via copy-pasted text messages, and status checks required phone calls.',
+      overview: 'Coffee-shop operations require sales, product availability, recipes, ingredient stock, cashier shifts, reports, and transaction corrections to remain connected. Remix Coffee models those operational records in one frontend experience with role-specific access.',
       frictionPoints: [
-        'Duplicate entry across three separate communication channels',
-        'Frequent delivery delays due to outdated address notes in chat',
-        'No real-time visibility into driver capacity or delivery completion'
+        'Sales and payment details need a consistent order record',
+        'Menu availability depends on recipe requirements and ingredient stock',
+        'Stock changes, shift totals, reports, and transaction corrections need connected operational context'
       ]
     },
-    context: 'The company was handling 200+ daily field dispatches. Operational staff spent over 3 hours each morning just verifying that spreadsheets matched drivers’ actual routes.',
+    context: 'Remix Coffee is a browser-based frontend demonstration built with fixture data, React state, localStorage, and sessionStorage. It represents an integrated coffee-shop operating cycle, while intentionally not establishing a real company, production backend, external payment settlement, or multi-user synchronization.',
     approach: {
-      philosophy: 'Instead of buying an off-the-shelf logistics suite with hundreds of unused enterprise features, we modeled their exact 4-stage delivery lifecycle.',
+      philosophy: 'We modeled the operational lifecycle as connected records and explicit role boundaries: authenticate, maintain the menu, build a POS order, update stock and shift values, then review or correct the stored transaction.',
       keyDecisions: [
-        'Centralized intake into a single relational order queue',
-        'Created a mobile-friendly view for drivers requiring only tap-to-complete actions',
-        'Implemented automatic status updates that triggered client alerts without human intervention'
+        'Separated owner, kasir, and logistik responsibilities through configured permissions',
+        'Connected products to recipes and ingredients so availability and sale deductions use the same data model',
+        'Kept voiding as a traceable reversal that preserves the stored order while restoring related stock and shift values'
       ]
     },
     system: {
-      description: 'A browser-based operational hub featuring a live dispatcher board, mobile driver manifest, and automated audit trail.',
+      description: 'A browser-based coffee-shop operations console covering authenticated access, POS order capture, inventory monitoring, menu and recipe maintenance, cashier shifts, reporting, receipts, CSV export, and transaction voiding.',
       modules: [
-        'Real-time order intake & deduplication parser',
-        'Visual driver assignment & capacity board',
-        'Driver mobile manifest with offline-tolerant status updates',
-        'Historical route archive and delivery reconciliation'
+        'Role-based access for owner, kasir, and logistik workflows',
+        'POS cart with customization, voucher validation, payment simulation, and receipt output',
+        'Ingredient inventory, recipe availability, restock, and stock opname tracking',
+        'Shift management, sales reporting, transaction export, and reversible void flow'
       ],
-      dataFlow: 'Incoming Order → Validated Entity → Dispatch Queue → Driver Route Sheet → Live Status Confirmation → Archive'
+      dataFlow: 'Authenticated Role → Menu & Availability → POS Cart → Simulated Payment → Order Record → Stock / Shift Updates → Reports or Void'
     },
     result: {
-      impact: 'Manual re-entry was completely eliminated, dispatch preparation time shrank from 3 hours to 15 minutes, and route disputes fell to near zero.',
+      impact: 'The demonstration connects the coffee-shop sales cycle with menu, recipe, inventory, shift, reporting, receipt, export, and correction workflows in one inspectable browser experience.',
       tangibleBenefits: [
-        'Single source of truth for all 200+ daily orders',
-        'Zero lost delivery notes or conflicting spreadsheet versions',
-        'Direct time savings of ~18 staff hours per week across the team'
+        'POS completion deducts direct or recipe-based stock and updates the active shift state',
+        'Inventory users can inspect low-stock status, available portions, recipes, and movement history',
+        'Reports exclude voided orders from primary analytics while retaining the transaction and reversal reason',
+        'The seeded demo state can be restored through the owner reset flow'
       ]
     },
-    technology: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Tailwind CSS']
+    technology: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'localStorage', 'sessionStorage']
   },
   {
-    id: 'asset-registry-portal',
-    title: 'Field Equipment Service & Inspection System',
+    id: 'washflow',
+    title: 'Washflow Laundry Operations Workflow',
+    liveUrl: 'https://fs02-portfolio-washflow.netlify.app/',
     category: 'Custom Web Development',
-    clientType: 'Commercial Facilities & Maintenance Provider',
-    summary: 'Transformed fragmented paper inspection logs and ad-hoc email threads into a structured equipment registry with automated service schedules.',
+    clientType: 'Laundry Operations Frontend Demonstration',
+    summary: 'An outlet-oriented laundry operations workspace connecting customer intake, weight-based pricing, processing stages, delivery fulfillment, payment status, and order history.',
     problem: {
-      overview: 'Maintenance technicians conducted compliance inspections on paper checklists. Reports were scanned and emailed to administrators, who manually updated customer folders. When audit inspections occurred, assembling history took days.',
+      overview: 'Laundry operations need customer details, service rates, order status, payment state, and fulfillment information to stay connected from intake through completion. Washflow models that shared order record across owner, washing, and delivery workspaces.',
       frictionPoints: [
-        'Paper records were frequently misfiled, water-damaged, or incomplete',
-        'Preventive maintenance intervals were missed until equipment malfunctioned',
-        'Client compliance certificates took up to two weeks to issue'
+        'Customer and order information needs to remain together from intake through fulfillment',
+        'Progress through washing and delivery requires shared statuses and structured handoffs',
+        'Weight-based charges and paid or unpaid state need to stay visible at order level'
       ]
     },
-    context: 'Managing over 800 active pieces of client equipment with strict regulatory compliance deadlines and legal liability.',
+    context: 'Washflow is a frontend-only React demonstration with seeded and changed data stored in browser localStorage. It represents an internal laundry-operations workflow, while not establishing a production backend, secure server-side authorization, payment processing, external notifications, or physical laundry and delivery completion.',
     approach: {
-      philosophy: 'We grounded the system in asset identities: every piece of equipment became an identifiable record with a chronological service ledger.',
+      philosophy: 'We centered the system on one customer-linked order record, then gave each internal role the workspace and bounded actions relevant to its stage of the operation.',
       keyDecisions: [
-        'Designed lightweight mobile checklist forms optimized for gloves and poor field connectivity',
-        'Built automated scheduling triggers based on service intervals (30, 90, 365 days)',
-        'Standardized pass/fail inspection criteria to eliminate ambiguous handwritten notes'
+        'Separated owner, washing, and delivery workspaces with role-specific navigation and actions',
+        'Used a fixed order lifecycle to make processing and fulfillment handoffs visible',
+        'Kept payment state, service rate, weight, fulfillment type, notes, and timeline events attached to the order'
       ]
     },
     system: {
-      description: 'A responsive maintenance portal providing field engineers with quick equipment histories and managers with live compliance tracking.',
+      description: 'An internal laundry operations workspace covering customer management, order intake, service pricing, processing queues, delivery tracking, payment updates, search, filtering, and order timelines.',
       modules: [
-        'Asset lifecycle & serial registry with QR lookup',
-        'Step-by-step mobile inspection wizard with photo attachments',
-        'Automated preventive maintenance calendar & email triggers',
-        'Instant one-click regulatory audit report generation'
+        'Owner dashboard with customer records, operational summaries, queues, and order management',
+        'Order intake with customer selection, laundry service, weight, fulfillment, payment, and notes',
+        'Washing workflow through Received, Washing, Drying, Ironing, and Ready stages',
+        'Delivery queue with Out for Delivery, Delivered, payment collection, and order history'
       ],
-      dataFlow: 'Equipment Scan → Guided Checklist → Instant Validation → Cloud Sync → Auto-generated Compliance Record'
+      dataFlow: 'Customer → Service & Weight → Received → Washing → Drying → Ironing → Ready → Out for Delivery → Delivered'
     },
     result: {
-      impact: 'Inspection logs became instantly accessible, missed maintenance dropped to zero, and compliance audits were cleared immediately.',
+      impact: 'The demonstration makes a complete represented laundry order lifecycle inspectable in one browser experience, from validated intake and price calculation through staged processing, delivery status, payment state, and timeline history.',
       tangibleBenefits: [
-        '800+ assets mapped with full inspection timeline',
-        'Compliance certificate issuance reduced from 14 days to instant export',
-        'Technicians saved an average of 40 minutes per field visit'
+        'Order totals are calculated from rounded weight multiplied by the selected service rate',
+        'Each successful status change records an updated timestamp and timeline event',
+        'Owner, washing, and delivery users see role-relevant queues and allowed actions',
+        'Search, filters, summaries, customer history, and order details support local operational review'
       ]
     },
-    technology: ['React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST API']
+    technology: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'localStorage']
   },
   {
-    id: 'portal-performance-refactoring',
-    title: 'Client Portal Architecture & Query Refactoring',
-    category: 'Refactoring & Performance Optimization',
-    clientType: 'Specialized Financial Analytics Advisory',
-    summary: 'Rescued a mission-critical client portal from 12-second load times, unpredictable timeouts, and fragile monthly software deployments.',
+    id: 'batter',
+    title: 'Batter Cake Ordering Platform',
+    liveUrl: 'https://fs05-portfolio-batter-cake.netlify.app/',
+    category: 'Custom Web Development',
+    clientType: 'Artisanal Cake Ordering Frontend MVP',
+    summary: 'A public cake storefront and owner-facing order workspace connecting product discovery, variant selection, checkout requests, WhatsApp handoff, and local order monitoring.',
     problem: {
-      overview: 'The web portal had grown organically over four years without architectural governance. Database queries ran 30+ unindexed table joins per page request, and the frontend downloaded 8MB of unminified JavaScript on every navigation.',
+      overview: 'Cake requests need a structured path from product discovery to owner review. Batter models product choices, quantities, customer contact, requested dates, notes, totals, and order status in one frontend MVP.',
       frictionPoints: [
-        'Portal homepage took 9 to 14 seconds to display core analytical metrics',
-        'Database CPU regularly spiked to 100% during peak market open hours',
-        'Developers avoided modifying analytics code because unrelated tabs would break'
+        'Cake requests need consistent product, variant, quantity, date, contact, and notes data',
+        'Submitted orders need a shared view for search, detail review, status updates, and history',
+        'Customer and owner communication needs a prepared WhatsApp handoff without pretending delivery is verified'
       ]
     },
-    context: 'High-value advisory clients threatened contract non-renewal due to portal unresponsiveness during morning briefing hours.',
+    context: 'Batter is a frontend MVP using dummy product and order data with browser-local persistence. It represents a buyer-to-owner cake ordering flow before backend integration, while not establishing payment processing, inventory, production planning, customer accounts, secure authorization, real-time synchronization, or confirmed WhatsApp delivery.',
     approach: {
-      philosophy: 'We conducted systematic profiling rather than guessing. We isolated slow query paths, decoupled presentation from raw data fetching, and introduced targeted caching.',
+      philosophy: 'We treated the storefront and admin area as two views of the same order-intake system: the buyer prepares a structured request, then the owner reviews and manages the local order record.',
       keyDecisions: [
-        'Introduced materialized read models for heavy statistical aggregates',
-        'Restructured database indexes to reduce scan costs on millions of ledger rows',
-        'Re-architected frontend bundle into route-based code chunks with memoized views'
+        'Made product variants, quantities, notes, requested date, contact details, and total explicit in the checkout record',
+        'Stored order items as snapshots so the submitted request retains its selected product and price context',
+        'Separated public ordering from the owner/admin workspace while keeping both flows connected through local order persistence'
       ]
     },
     system: {
-      description: 'A re-architected data access layer and streamlined frontend interface with sub-second page transitions.',
+      description: 'A cake ordering frontend with a searchable storefront, configurable product variants, cart and checkout flow, order confirmation, WhatsApp URL handoff, and owner dashboard, orders, and history views.',
       modules: [
-        'Optimized data aggregation layer with read-optimized caching',
-        'Refactored frontend component hierarchy with zero bundle bloat',
-        'Isolated analytics calculation modules with regression test coverage',
-        'Database connection pool hardening and slow query monitoring'
+        'Cake catalog with product search, category filters, product details, and variant selection',
+        'Cake box cart with quantity changes, optional notes, line merging, and subtotal calculation',
+        'Checkout and confirmation with contact details, pickup or needed date, order reference, and WhatsApp handoff',
+        'Owner portal with local authentication gate, order search, status management, dashboard KPIs, and history'
       ],
-      dataFlow: 'Client Request → In-Memory Aggregate Cache → Lean Data Payload → Instant UI Render (<350ms)'
+      dataFlow: 'Cake Catalog → Variant & Quantity → Cart → Checkout Request → PENDING Order → Owner Review → CONFIRMED / COMPLETED / CANCELLED'
     },
     result: {
-      impact: 'Average page load plummeted from 12.4s to 320ms, peak CPU usage dropped by 72%, and client retention stabilized.',
+      impact: 'The MVP makes the buyer-to-owner ordering journey inspectable in one browser experience, from cake discovery and request preparation through local order creation, status management, reporting, and communication handoff.',
       tangibleBenefits: [
-        '97% reduction in page load latency across the application',
-        'Zero database timeouts during peak market open sessions',
-        'Feature deployment turnaround improved from monthly panic to weekly routine'
+        'Required customer name, WhatsApp, and pickup or needed date are validated before order creation',
+        'Order items preserve selected cake variants, quantities, notes, prices, and totals as checkout snapshots',
+        'Owner views provide searchable orders, status filters, order details, dashboard summaries, and history categories',
+        'Generated WhatsApp links provide a ready communication starting point while keeping external delivery unverified'
       ]
     },
-    technology: ['Node.js', 'PostgreSQL Optimization', 'React', 'Vite', 'Redis Cache']
-  },
-  {
-    id: 'consultative-firm-website',
-    title: 'Consultative Practice Positioning & Inquiry Engine',
-    category: 'Website Development',
-    clientType: 'Strategic Urban Planning & Design Consultancy',
-    summary: 'Replaced a vague corporate marketing brochure with an intentional, editorial web presence that qualifies high-value project inquiries.',
-    problem: {
-      overview: 'The firm had completed complex civic planning projects, but their website presented generic stock photography and buzzwords. Prospective clients couldn’t discern their actual methodology, resulting in low-fit exploratory calls.',
-      frictionPoints: [
-        'Website visitors could not understand the firm’s actual problem-solving process',
-        'Partners spent 40% of consultation calls explaining basic scope boundaries',
-        'Mobile visitors bounced due to heavy unoptimized PDF brochures'
-      ]
-    },
-    context: 'The firm relied heavily on partner referrals and needed their web presence to substantiate their technical rigor and intellectual leadership.',
-    approach: {
-      philosophy: 'We treated the website as an editorial system: structured case narratives, clear problem framing, and transparent engagement criteria.',
-      keyDecisions: [
-        'Replaced generic marketing copy with case studies structured around Problem → Methodology → Civic Outcome',
-        'Built an interactive project intake flow that filters inquiries by timeline and civic scope',
-        'Engineered an ultra-fast, minimalist aesthetic with crisp typography and subtle system grids'
-      ]
-    },
-    system: {
-      description: 'A bespoke editorial web platform with structured project archives, thought pieces, and a guided inquiry qualification flow.',
-      modules: [
-        'Structured case narrative layout system',
-        'Dynamic civic project archive with topic & scale filtering',
-        'Guided engagement discovery form with scope qualification',
-        'Responsive typography system optimized for reading comfort'
-      ],
-      dataFlow: 'Visitor Inquiry → Scope Guided Selector → Contextual Brief → Partner Review Dashboard'
-    },
-    result: {
-      impact: 'Inquiry quality dramatically improved, partner consultation time was freed up from screening unqualified leads, and prospective clients arrived pre-briefed.',
-      tangibleBenefits: [
-        '3x increase in qualified high-scope civic project inquiries',
-        'Bounce rate dropped by 45% with average reading time increasing to 3.5 minutes',
-        'Firm leadership praised for a website that finally reflects their intellectual rigor'
-      ]
-    },
-    technology: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Sora & Manrope Typography']
+    technology: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'localStorage']
   }
 ];
 
